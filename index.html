@@ -18,6 +18,22 @@
             min-height: 100vh;
             padding: 40px 20px;
             color: #000000;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://tfwang992392.github.io/Nico-30-days/background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            z-index: -1;
         }
 
         .container {
@@ -50,9 +66,18 @@
             background: #fafafa;
             border: 1px solid #e0e0e0;
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px 30px;
             margin-bottom: 40px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .streak-info {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
         }
 
         .streak-label {
@@ -60,25 +85,20 @@
             color: #999999;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 12px;
             font-weight: 500;
         }
 
         .streak-display {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 300;
             color: #000000;
-            margin: 10px 0 20px 0;
             letter-spacing: -0.5px;
         }
 
         .streak-visual {
             display: flex;
             gap: 6px;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 600px;
-            margin: 0 auto;
+            flex-wrap: nowrap;
         }
 
         .streak-day {
@@ -276,6 +296,17 @@
             h1 {
                 font-size: 2rem;
             }
+
+            .streak-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .streak-visual {
+                flex-wrap: wrap;
+                width: 100%;
+            }
             
             .calendar-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -295,13 +326,15 @@
 <body>
     <div class="container">
         <header>
-            <h1>Overthinking 30 Days</h1>
+            <h1>30 Days of Wonder</h1>
             <div class="subtitle">Made for Nico, from Terri</div>
         </header>
 
         <div class="streak-container">
-            <div class="streak-label">Current Streak</div>
-            <div class="streak-display" id="streakCount">0 days</div>
+            <div class="streak-info">
+                <div class="streak-label">Current Streak</div>
+                <div class="streak-display" id="streakCount">0 days</div>
+            </div>
             <div class="streak-visual" id="streakVisual"></div>
         </div>
 
