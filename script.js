@@ -32,41 +32,167 @@ const prompts = [
   { date: "2025-12-31", label: "2025/12/31 (Wednesday)", text: "What’s one thing you wish Terri would ask you more often?" }
 ];
 
+const totalDays = prompts.length;
+const startDateStr = prompts[0].date;
+const endDateStr = prompts[totalDays - 1].date;
+
 const dateLabelEl = document.getElementById("dateLabel");
 const dayLabelEl = document.getElementById("dayLabel");
 const promptTextEl = document.getElementById("promptText");
+const currentDayNumberEl = document.getElementById("currentDayNumber");
+const completedCountEl = document.getElementById("completedCount");
+const totalCountEl = document.getElementById("totalCount");
+const progressBarEl = document.getElementById("progressBar");
+const progressPercentEl = document.getElementById("progressPercent");
+const streakValueEl = document.getElementById("streakValue");
+const daysLeftValueEl = document.getElementById("daysLeftValue");
+const missedDaysValueEl = document.getElementById("missedDaysValue");
+const journeyGridEl = document.getElementById("journeyGrid");
 
 const prevBtn = document.getElementById("prevBtn");
 const todayBtn = document.getElementById("todayBtn");
 const nextBtn = document.getElementById("nextBtn");
 
+totalCountEl.textContent = totalDays.toString();
+
 let currentIndex = getTodayIndex();
 
+// --- date helpers ---
+
+function parseDate(str) {
+  // str: "YYYY-MM-DD"
+  const [y, m, d] = str.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function diffDays(a, b) {
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const diff = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate()) -
+               Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  return Math.floor(diff / msPerDay);
+}
+
+// figure out today's index based on real date
 function getTodayIndex() {
   const today = new Date();
-  const y = today.getFullYear();
-  const m = String(today.getMonth() + 1).padStart(2, "0");
-  const d = String(today.getDate()).padStart(2, "0");
-  const todayStr = `${y}-${m}-${d}`;
+  const todayStr = today.toISOString().slice(0, 10);
 
-  const firstDate = prompts[0].date;
-  const lastDate = prompts[prompts.length - 1].date;
+  const first = startDateStr;
+  const last = endDateStr;
 
-  if (todayStr <= firstDate) return 0;
-  if (todayStr >= lastDate) return prompts.length - 1;
+  if (todayStr <= first) return 0;
+  if (todayStr >= last) return totalDays - 1;
 
-  const idx = prompts.findIndex((p) => p.date === todayStr);
+  const idx = prompts.findIndex(p => p.date === todayStr);
   return idx === -1 ? 0 : idx;
 }
 
-function render() {
-  const item = prompts[currentIndex];
-  dateLabelEl.textContent = item.label;
-  dayLabelEl.textContent = `Day ${currentIndex + 1} of ${prompts.length}`;
-  promptTextEl.textContent = item.text;
+// compute stats: completed, days left, streak, missed
+function computeStats() {
+  const today = new Date();
+  const start = parseDate(startDateStr);
+  const end = parseDate(endDateStr);
+
+  let daysElapsed = 0;
+  if (today < start) {
+    daysElapsed = 0;
+  } else if (today > end) {
+    daysElapsed = totalDays;
+  } else {
+    daysElapsed = diffDays(start, today) + 1;
+  }
+
+  const completed = Math.min(daysElapsed, totalDays);
+  const daysLeft = Math.max(totalDays - completed, 0);
+
+  // very simple logic: if daysElapsed > completed → we say those are missed
+  const missed = Math.max(daysElapsed - completed, 0);
+
+  // streak: if missed days > 0 → 0, else = completed
+  const streak = missed > 0 ? 0 : completed;
+
+  return { completed, daysLeft, missed, streak };
 }
 
-// Button handlers
+// render main view
+function render() {
+  const item = prompts[currentIndex];
+  const stats = computeStats();
+
+  // today's card
+  dateLabelEl.textContent = item.label;
+  promptTextEl.textContent = item.text;
+  currentDayNumberEl.textContent = (currentIndex + 1).toString();
+
+  // summary / stats
+  completedCountEl.textContent = stats.completed.toString();
+  daysLeftValueEl.textContent = stats.daysLeft.toString();
+  missedDaysValueEl.textContent = stats.missed.toString();
+  streakValueEl.textContent = stats.streak.toString();
+
+  const progress = totalDays === 0 ? 0 : (stats.completed / totalDays) * 100;
+  progressBarEl.style.width = `${progress}%`;
+  progressPercentEl.textContent = `${Math.round(progress)}%`;
+
+  // journey grid state
+  updateGrid();
+}
+
+// build journey grid once
+function buildGrid() {
+  journeyGridEl.innerHTML = "";
+  for (let i = 0; i < totalDays; i++) {
+    const cell = document.createElement("button");
+    cell.type = "button";
+    cell.className = "day-cell";
+    cell.dataset.index = String(i);
+
+    const inner = document.createElement("div");
+    inner.className = "day-cell-inner";
+
+    const num = document.createElement("div");
+    num.className = "day-number";
+    num.textContent = String(i + 1);
+
+    const label = document.createElement("div");
+    label.className = "day-label-mini";
+    label.textContent = "Day";
+
+    inner.appendChild(num);
+    inner.appendChild(label);
+    cell.appendChild(inner);
+
+    cell.addEventListener("click", () => {
+      const todayIdx = getTodayIndex();
+      if (i <= todayIdx) {
+        currentIndex = i;
+        render();
+      }
+    });
+
+    journeyGridEl.appendChild(cell);
+  }
+}
+
+// update grid styling based on today & currentIndex
+function updateGrid() {
+  const todayIdx = getTodayIndex();
+  const cells = journeyGridEl.querySelectorAll(".day-cell");
+
+  cells.forEach((cell, idx) => {
+    cell.classList.remove("day-cell--past", "day-cell--today", "day-cell--locked");
+
+    if (idx === currentIndex) {
+      cell.classList.add("day-cell--today");
+    } else if (idx <= todayIdx) {
+      cell.classList.add("day-cell--past");
+    } else {
+      cell.classList.add("day-cell--locked");
+    }
+  });
+}
+
+// button handlers
 prevBtn.addEventListener("click", () => {
   if (currentIndex > 0) {
     currentIndex -= 1;
@@ -75,7 +201,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-  if (currentIndex < prompts.length - 1) {
+  if (currentIndex < totalDays - 1) {
     currentIndex += 1;
     render();
   }
@@ -86,5 +212,6 @@ todayBtn.addEventListener("click", () => {
   render();
 });
 
-// Initial render
+// init
+buildGrid();
 render();
