@@ -361,9 +361,13 @@
         }
 
         function isDateUnlocked(dateStr) {
-            const promptDate = new Date(dateStr + 'T00:00:00');
-            const today = new Date(getTodayDate() + 'T00:00:00');
-            return promptDate <= today;
+            // Temporarily unlock all days for preview
+            return true;
+            
+            // Original code (commented out):
+            // const promptDate = new Date(dateStr + 'T00:00:00');
+            // const today = new Date(getTodayDate() + 'T00:00:00');
+            // return promptDate <= today;
         }
 
         function calculateStreak() {
