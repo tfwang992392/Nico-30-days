@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overthinking 30 Days</title>
 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
 
-<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -96,27 +96,43 @@
             margin: 0 auto;
         }
 
-        /* 🌟 HEADER 樣式修改開始 (直接替換為圖片) 🌟 */
+        /* 🌟 HEADER 樣式修改：切回文字樣式 🌟 */
         header {
             text-align: center;
             margin-bottom: 60px;
             padding: 40px 20px;
-            /* 圖片本身可能帶有背景，所以這裡設為none。如果圖片是透明的，可以保留底色 #6b2e29 */
-            background: none; 
+            /* 深紅棕色背景 */
+            background: #6b2e29; 
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 保留陰影效果 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
+        h1 {
+            /* 採用 Patrick Hand 字體，並放大、改色 */
+            font-family: 'Patrick Hand', cursive; 
+            font-size: 4.5rem; 
+            font-weight: 400; 
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: #ffffff; /* 白色 */
+            line-height: 1.2;
+            display: block; /* 確保顯示 */
+        }
+
+        .subtitle {
+            /* 調整字體大小、顏色和設為斜體 */
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: 1.5rem; 
+            color: rgba(255, 255, 255, 0.85); /* 淺白色 */
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            font-style: italic; /* 斜體 */
+            display: block; /* 確保顯示 */
+        }
+        
+        /* 移除圖片相關的樣式 */
         .header-image {
-            max-width: 80%; /* 限制圖片最大寬度，使其在小螢幕上縮小 */
-            height: auto; /* 高度自動調整，保持圖片比例 */
-            display: block; /* 讓圖片居中 */
-            margin: 0 auto; /* 居中圖片 */
-        }
-
-        /* 隱藏 H1 和 .subtitle 的所有 CSS 樣式，因為它們現在由圖片取代 */
-        h1, .subtitle {
-            display: none; /* 直接隱藏這兩個元素 */
+            display: none;
         }
         /* 🌟 HEADER 樣式修改結束 🌟 */
 
@@ -485,9 +501,12 @@
         }
 
         @media (max-width: 768px) {
-            /* 圖片header在手機版上的調整 */
-            .header-image {
-                max-width: 95%; /* 手機上可以稍微放大圖片 */
+            /* 調整手機版 h1 字體大小 */
+            h1 {
+                font-size: 3rem; 
+            }
+            .subtitle {
+                font-size: 1.2rem;
             }
 
             .streak-container {
@@ -515,325 +534,4 @@
                 width: 90vw;
                 height: 90vw;
                 max-width: 400px;
-                max-height: 400px;
-                padding: 40px 30px;
-            }
-
-            .modal-prompt {
-                font-size: 1.1rem;
-                max-width: 300px;
-            }
-            
-            .calendar-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 12px;
-            }
-            
-            .modal-content {
-                padding: 40px 30px;
-            }
-
-            .modal-prompt {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <img src="Nico's Daily Sparkle.png" alt="Nico's Daily Sparkle - A Special Gift from Terri" class="header-image">
-        </header>
-        <div class="streak-container">
-            <div class="streak-info">
-                <div class="streak-label">Current Streak</div>
-                <div class="streak-display" id="streakCount">0 days</div>
-            </div>
-            <div class="streak-visual" id="streakVisual"></div>
-        </div>
-
-        <div class="calendar-grid" id="calendar"></div>
-    </div>
-
-        <div class="modal" id="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <div class="modal-day" id="modalDay"></div>
-            <div class="modal-date" id="modalDate"></div>
-            <div class="modal-prompt" id="modalPrompt"></div>
-            <button class="complete-btn" id="completeBtn" onclick="toggleComplete()"></button>
-        </div>
-    </div>
-
-    <script>
-        const prompts = [
-            { date: '2024-11-30', day: 'Saturday, Nov 30', prompt: 'Notice five things you usually ignore during your commute.' },
-            { date: '2024-12-01', day: 'Sunday, Dec 1', prompt: 'Touch three different textures with your eyes closed.' },
-            { date: '2024-12-02', day: 'Monday, Dec 2', prompt: 'Take a 1-minute video of the view from your current location.' },
-            { date: '2024-12-03', day: 'Tuesday, Dec 3', prompt: 'Draw a quick sketch of your left hand.' },
-            { date: '2024-12-04', day: 'Wednesday, Dec 4', prompt: 'Count exactly 10 different shades of blue today.' },
-            { date: '2024-12-05', day: 'Thursday, Dec 5', prompt: 'Take a shower in the dark.' },
-            { date: '2024-12-06', day: 'Friday, Dec 6', prompt: 'Say out loud what you are doing, like a narrator.' },
-            { date: '2024-12-07', day: 'Saturday, Dec 7', prompt: 'Wear two different colored socks.' },
-            { date: '2024-12-08', day: 'Sunday, Dec 8', prompt: 'Send a photo of your shoes to a friend.' },
-            { date: '2024-12-09', day: 'Monday, Dec 9', prompt: 'Buy a pint of ice cream.' },
-            { date: '2024-12-10', day: 'Tuesday, Dec 10', prompt: "Go to McDonald's and try something you've never ordered before (A&W is allowed if needed)." },
-            { date: '2024-12-11', day: 'Wednesday, Dec 11', prompt: 'Say "thank you" in other languages (not English) for the entire day.' },
-            { date: '2024-12-12', day: 'Thursday, Dec 12', prompt: 'What is a common word you often misspell?' },
-            { date: '2024-12-13', day: 'Friday, Dec 13', prompt: 'What book changed your perspective on life?' },
-            { date: '2024-12-14', day: 'Saturday, Dec 14', prompt: 'What is your go-to comfort meal, and why?' },
-            { date: '2024-12-15', day: 'Sunday, Dec 15', prompt: "What's the worst advice you've ever received?" },
-            { date: '2024-12-16', day: 'Monday, Dec 16', prompt: 'What is one memory you wish you could revisit right now?' },
-            { date: '2024-12-17', day: 'Tuesday, Dec 17', prompt: 'What food would you trust to keep a secret?' },
-            { date: '2024-12-18', day: 'Wednesday, Dec 18', prompt: 'Try to guess the profession of the next person you see.' },
-            { date: '2024-12-19', day: 'Thursday, Dec 19', prompt: "Rewrite your name in a style you've never used before." },
-            { date: '2024-12-20', day: 'Friday, Dec 20', prompt: 'Record your voice for 30 seconds and play it back.' },
-            { date: '2024-12-21', day: 'Saturday, Dec 21', prompt: 'Change one tiny thing about your routine today on purpose.' },
-            { date: '2024-12-22', day: 'Sunday, Dec 22', prompt: 'Whisper a secret to a plant, real or imaginary.' },
-            { date: '2024-12-23', day: 'Monday, Dec 23', prompt: 'Rewrite a real memory as if it were fiction.' },
-            { date: '2024-12-24', day: 'Tuesday, Dec 24', prompt: 'Declare one part of your body "CEO of Today" and let it make a decision.' },
-            { date: '2024-12-25', day: 'Wednesday, Dec 25 🎄', prompt: 'Promote one inanimate object in your house to a higher social rank.' },
-            { date: '2024-12-26', day: 'Thursday, Dec 26', prompt: "Introduce yourself to the nearest object as if you've just landed on a new planet." },
-            { date: '2024-12-27', day: 'Friday, Dec 27', prompt: 'Identify the least important decision you made today and analyze it like a scientist.' },
-            { date: '2024-12-28', day: 'Saturday, Dec 28', prompt: 'If your mood today were a type of pasta, which shape would it be?' },
-            { date: '2024-12-29', day: 'Sunday, Dec 29', prompt: "What's one thing you wish Terri would ask you more often?" }
-        ];
-
-        let completedDays = JSON.parse(localStorage.getItem('completedDays') || '[]');
-        let feedbacks = JSON.parse(localStorage.getItem('feedbacks') || '{}');
-        let currentDayIndex = null;
-        let isEditingFeedback = false;
-
-        function getTodayDate() {
-            const today = new Date();
-            return today.toISOString().split('T')[0];
-        }
-
-        function isDateUnlocked(dateStr) {
-            // Temporarily unlock all days for preview
-            return true;
-            
-            // Original code (commented out):
-            // const promptDate = new Date(dateStr + 'T00:00:00');
-            // const today = new Date(getTodayDate() + 'T00:00:00');
-            // return promptDate <= today;
-        }
-
-        function calculateStreak() {
-            if (completedDays.length === 0) return 0;
-            
-            const sortedDays = [...completedDays].sort();
-            let streak = 1;
-            
-            for (let i = sortedDays.length - 1; i > 0; i--) {
-                const current = new Date(sortedDays[i]);
-                const previous = new Date(sortedDays[i - 1]);
-                const diffDays = (current - previous) / (1000 * 60 * 60 * 24);
-                
-                if (diffDays === 1) {
-                    streak++;
-                } else {
-                    break;
-                }
-            }
-            
-            return streak;
-        }
-
-        function updateStreak() {
-            const streak = calculateStreak();
-            const streakText = streak === 1 ? 'day' : 'days';
-            document.getElementById('streakCount').textContent = `${streak} ${streakText}`;
-            
-            // Update visual streak
-            const streakVisual = document.getElementById('streakVisual');
-            streakVisual.innerHTML = '';
-            
-            for (let i = 0; i < 30; i++) {
-                const day = document.createElement('div');
-                day.className = 'streak-day';
-                if (i < completedDays.length) {
-                    day.classList.add('active');
-                }
-                streakVisual.appendChild(day);
-            }
-        }
-
-        function renderCalendar() {
-            const calendar = document.getElementById('calendar');
-            calendar.innerHTML = '';
-            const today = getTodayDate();
-
-            // Find today's card
-            let todayCard = null;
-            let todayIndex = -1;
-
-            prompts.forEach((item, index) => {
-                if (item.date === today) {
-                    todayIndex = index;
-                }
-            });
-
-            // Render today's card first (enlarged)
-            if (todayIndex !== -1) {
-                const item = prompts[todayIndex];
-                const todayContainer = document.createElement('div');
-                todayContainer.className = 'today-card-container';
-                
-                const card = document.createElement('div');
-                card.className = 'day-card today';
-                
-                const isCompleted = completedDays.includes(item.date);
-                
-                if (isCompleted) {
-                    card.classList.add('completed');
-                }
-
-                card.innerHTML = `
-                    ${isCompleted ? '<div class="checkmark">✓</div>' : ''}
-                    <div class="day-number">Day ${todayIndex + 1}</div>
-                    <div class="day-date">${item.day}</div>
-                    <div class="today-label">Today</div>
-                `;
-
-                card.onclick = () => openModal(todayIndex);
-                todayContainer.appendChild(card);
-                calendar.appendChild(todayContainer);
-            }
-
-            // Render all other cards
-            prompts.forEach((item, index) => {
-                // Skip today's card as it's already rendered
-                if (index === todayIndex) return;
-                
-                const card = document.createElement('div');
-                card.className = 'day-card';
-                
-                const isCompleted = completedDays.includes(item.date);
-                const isUnlocked = isDateUnlocked(item.date);
-                
-                if (isCompleted) {
-                    card.classList.add('completed');
-                }
-                
-                if (!isUnlocked) {
-                    card.classList.add('locked');
-                }
-
-                card.innerHTML = `
-                    ${isCompleted ? '<div class="checkmark">✓</div>' : ''}
-                    <div class="day-number">Day ${index + 1}</div>
-                    <div class="day-date">${item.day.split(',')[1].trim()}</div>
-                `;
-
-                if (isUnlocked) {
-                    card.onclick = () => openModal(index);
-                }
-
-                calendar.appendChild(card);
-            });
-
-            updateStreak();
-        }
-
-        function openModal(index) {
-            currentDayIndex = index;
-            const item = prompts[index];
-            const isCompleted = completedDays.includes(item.date);
-
-            // Add sparkle effect to clicked card
-            const cards = document.querySelectorAll('.day-card');
-            cards.forEach((card, i) => {
-                if (card.onclick && card.onclick.toString().includes(`openModal(${index})`)) {
-                    card.classList.add('sparkle-click');
-                    setTimeout(() => card.classList.remove('sparkle-click'), 600);
-                }
-            });
-
-            document.getElementById('modalDay').textContent = `Day ${index + 1}`;
-            document.getElementById('modalDate').textContent = item.day;
-            document.getElementById('modalPrompt').textContent = item.prompt;
-            
-            const btn = document.getElementById('completeBtn');
-            if (isCompleted) {
-                btn.textContent = '✓ Completed';
-                btn.classList.add('completed');
-            } else {
-                btn.textContent = 'Complete';
-                btn.classList.remove('completed');
-            }
-            
-            document.getElementById('modal').classList.add('active');
-        }
-
-        function editFeedback() {
-            const feedbackDisplay = document.getElementById('feedbackDisplay');
-            const feedbackTextarea = document.getElementById('feedbackTextarea');
-            const buttonGroup = document.getElementById('buttonGroup');
-            
-            feedbackDisplay.style.display = 'none';
-            feedbackTextarea.style.display = 'block';
-            isEditingFeedback = true;
-            
-            buttonGroup.innerHTML = `
-                <button class="save-btn" onclick="saveFeedback()">Save Changes</button>
-                <button class="edit-btn" onclick="cancelEdit()">Cancel</button>
-            `;
-        }
-
-        function cancelEdit() {
-            const item = prompts[currentDayIndex];
-            openModal(currentDayIndex);
-        }
-
-        function saveFeedback() {
-            const item = prompts[currentDayIndex];
-            const feedbackTextarea = document.getElementById('feedbackTextarea');
-            const feedback = feedbackTextarea.value.trim();
-            
-            if (feedback) {
-                feedbacks[item.date] = feedback;
-                localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-                
-                // Auto-complete when saving feedback
-                if (!completedDays.includes(item.date)) {
-                    completedDays.push(item.date);
-                    localStorage.setItem('completedDays', JSON.stringify(completedDays));
-                    renderCalendar();
-                }
-            }
-            
-            openModal(currentDayIndex);
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
-
-        function toggleComplete() {
-            const item = prompts[currentDayIndex];
-            const index = completedDays.indexOf(item.date);
-
-            if (index > -1) {
-                completedDays.splice(index, 1);
-            } else {
-                completedDays.push(item.date);
-            }
-
-            localStorage.setItem('completedDays', JSON.stringify(completedDays));
-            renderCalendar();
-            closeModal();
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('modal').addEventListener('click', (e) => {
-            if (e.target.id === 'modal') {
-                closeModal();
-            }
-        });
-
-        // Initialize
-        renderCalendar();
-    </script>
-</body>
-</html>
+                max-height: 40
