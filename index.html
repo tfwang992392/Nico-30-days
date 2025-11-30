@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overthinking 30 Days</title>
 
-    
-
-<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -96,27 +94,36 @@
             margin: 0 auto;
         }
 
-        /* 🌟 HEADER 樣式修改開始 (使用圖片，並移除所有邊框與陰影) 🌟 */
+        /* 🌟 HEADER 樣式：無邊框，無陰影 🌟 */
         header {
             text-align: center;
             margin-bottom: 60px;
             padding: 40px 20px;
-            background: none; /* 確保沒有背景顏色 */
-            border-radius: 0; /* 移除圓角 */
-            box-shadow: none; /* 移除陰影 */
-            border: none; /* 移除邊框 */
+            background: none; 
+            border-radius: 0; 
+            box-shadow: none; 
+            border: none; 
         }
 
         .header-image {
-            max-width: 80%; /* 限制圖片最大寬度，使其在小螢幕上縮小 */
-            height: auto; /* 高度自動調整，保持圖片比例 */
-            display: block; /* 讓圖片居中 */
-            margin: 0 auto; /* 居中圖片 */
+            max-width: 80%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto; 
         }
 
-        /* 隱藏 H1 和 .subtitle 的所有 CSS 樣式，因為它們現在由圖片取代 */
+        /* 新增的 TerrinNico 圖片樣式 */
+        .header-image-secondary {
+            max-width: 50%; /* 圖片大小調整 */
+            height: auto;
+            display: block;
+            margin: 30px auto 0; /* 頂部留出間距，並居中 */
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        }
+
         h1, .subtitle {
-            display: none; /* 直接隱藏這兩個元素 */
+            display: none; 
         }
         /* 🌟 HEADER 樣式修改結束 🌟 */
 
@@ -485,9 +492,12 @@
         }
 
         @media (max-width: 768px) {
-            /* 圖片header在手機版上的調整 */
             .header-image {
-                max-width: 95%; /* 手機上可以稍微放大圖片 */
+                max-width: 95%; 
+            }
+            .header-image-secondary {
+                max-width: 70%; 
+                margin-top: 20px;
             }
 
             .streak-container {
@@ -543,7 +553,9 @@
     <div class="container">
         <header>
             <img src="Nico's Daily Sparkle.png" alt="Nico's Daily Sparkle - A Special Gift from Terri" class="header-image">
+            <img src="https://tfwang992392.github.io/TerrinNico.png" alt="Terrin & Nico" class="header-image-secondary">
         </header>
+
         <div class="streak-container">
             <div class="streak-info">
                 <div class="streak-label">Current Streak</div>
@@ -555,7 +567,7 @@
         <div class="calendar-grid" id="calendar"></div>
     </div>
 
-        <div class="modal" id="modal">
+    <div class="modal" id="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal()">&times;</button>
             <div class="modal-day" id="modalDay"></div>
@@ -605,18 +617,15 @@
         let isEditingFeedback = false;
 
         function getTodayDate() {
-            // 由於今天是 2025/11/30，而 Prompts 是從 2024/11/30 開始的，為確保網頁顯示內容，我們仍然使用當前日期，但讓所有 Prompts 解鎖。
             const today = new Date();
             return today.toISOString().split('T')[0];
         }
 
         function isDateUnlocked(dateStr) {
-            // 臨時設定為解鎖所有天數，以便測試。
             return true;
         }
 
         function calculateStreak() {
-            // 這裡的 Streak 計算邏輯是基於已完成天數的連續性
             if (completedDays.length === 0) return 0;
             
             const sortedDays = [...completedDays].sort();
@@ -627,7 +636,6 @@
                 const previous = new Date(sortedDays[i - 1]);
                 const diffDays = (current - previous) / (1000 * 60 * 60 * 24);
                 
-                // 檢查日期是否連續 (差異為一天)
                 if (diffDays === 1) {
                     streak++;
                 } else {
@@ -643,14 +651,12 @@
             const streakText = streak === 1 ? 'day' : 'days';
             document.getElementById('streakCount').textContent = `${streak} ${streakText}`;
             
-            // 更新視覺化連續天數
             const streakVisual = document.getElementById('streakVisual');
             streakVisual.innerHTML = '';
             
             for (let i = 0; i < 30; i++) {
                 const day = document.createElement('div');
                 day.className = 'streak-day';
-                // 僅根據已完成的數量來點亮
                 if (i < completedDays.length) {
                     day.classList.add('active');
                 }
@@ -663,16 +669,13 @@
             calendar.innerHTML = '';
             const today = getTodayDate();
 
-            // 尋找「今天」的卡片索引
             let todayIndex = -1;
             prompts.forEach((item, index) => {
-                // 如果 Prompts 裡沒有今天的日期，就不會有 Today 卡片
                 if (item.date === today) {
                     todayIndex = index;
                 }
             });
 
-            // 渲染「今天」的卡片 (放大版)
             if (todayIndex !== -1) {
                 const item = prompts[todayIndex];
                 const todayContainer = document.createElement('div');
@@ -699,9 +702,7 @@
                 calendar.appendChild(todayContainer);
             }
 
-            // 渲染所有其他卡片
             prompts.forEach((item, index) => {
-                // 跳過今天這張卡片
                 if (index === todayIndex) return;
                 
                 const card = document.createElement('div');
@@ -739,10 +740,8 @@
             const item = prompts[index];
             const isCompleted = completedDays.includes(item.date);
 
-            // 加入點擊卡片的閃爍效果
             const cards = document.querySelectorAll('.day-card');
             cards.forEach((card, i) => {
-                // 簡單判斷點擊的是哪一張卡片
                 if (card.onclick && card.onclick.toString().includes(`openModal(${index})`)) {
                     card.classList.add('sparkle-click');
                     setTimeout(() => card.classList.remove('sparkle-click'), 600);
@@ -756,4 +755,43 @@
             const btn = document.getElementById('completeBtn');
             if (isCompleted) {
                 btn.textContent = '✓ Completed';
-                btn.classList.add('completed
+                btn.classList.add('completed');
+            } else {
+                btn.textContent = 'Complete';
+                btn.classList.remove('completed');
+            }
+            
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function toggleComplete() {
+            const item = prompts[currentDayIndex];
+            const index = completedDays.indexOf(item.date);
+
+            if (index > -1) {
+                completedDays.splice(index, 1);
+            } else {
+                completedDays.push(item.date);
+            }
+
+            localStorage.setItem('completedDays', JSON.stringify(completedDays));
+            
+            renderCalendar();
+            
+            closeModal();
+        }
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        renderCalendar();
+    </script>
+</body>
+</html>
