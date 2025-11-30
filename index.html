@@ -84,7 +84,7 @@
         margin: 0 auto;
     }
 
-    /* 🌟 HEADER 樣式：無邊框，無陰影 🌟 */
+    /* HEADER */
     header {
         text-align: center;
         margin-bottom: 60px;
@@ -102,12 +102,11 @@
         margin: 0 auto;
     }
 
-    /* 新增的 TerrinNico 圖片樣式 */
     .header-image-secondary {
-        max-width: 75%; /* 圖片大小調整 */
+        max-width: 75%;
         height: auto;
         display: block;
-        margin: 30px auto 0; /* 頂部留出間距，並居中 */
+        margin: 30px auto 0;
         border-radius: 15px;
         box-shadow: none;
     }
@@ -115,7 +114,6 @@
     h1, .subtitle {
         display: none;
     }
-    /* 🌟 HEADER 樣式修改結束 🌟 */
 
     .streak-container {
         background: rgba(245, 230, 224, 0.9);
@@ -156,7 +154,6 @@
         display: flex;
         gap: 6px;
         flex-wrap: nowrap;
-        overflow-x: auto;
     }
 
     .streak-day {
@@ -423,26 +420,11 @@
         max-width: 380px;
     }
 
-    .feedback-section {
-        display: none;
-    }
-
-    .feedback-label {
-        display: none;
-    }
-
-    .feedback-textarea {
-        display: none;
-    }
-
-    .feedback-display {
-        display: none;
-    }
-
-    .feedback-display.empty {
-        display: none;
-    }
-
+    .feedback-section,
+    .feedback-label,
+    .feedback-textarea,
+    .feedback-display,
+    .feedback-display.empty,
     .button-group {
         display: none;
     }
@@ -543,11 +525,10 @@
 <body>
     <div class="container">
         <header>
-    <img src="TerriNico.png"
-         alt="Terri & Nico"
-         class="header-image-secondary">
-</header>
-
+            <img src="TerriNico.png"
+                 alt="Terri & Nico"
+                 class="header-image-secondary">
+        </header>
 
         <div class="streak-container">
             <div class="streak-info">
@@ -572,36 +553,36 @@
 
     <script>
         const prompts = [
-            { date: '2024-11-30', day: 'Saturday, Nov 30', prompt: 'Notice five things you usually ignore during your commute.' },
-            { date: '2024-12-01', day: 'Sunday, Dec 1', prompt: 'Touch three different textures with your eyes closed.' },
-            { date: '2024-12-02', day: 'Monday, Dec 2', prompt: 'Take a 1-minute video of the view from your current location.' },
-            { date: '2024-12-03', day: 'Tuesday, Dec 3', prompt: 'Draw a quick sketch of your left hand.' },
-            { date: '2024-12-04', day: 'Wednesday, Dec 4', prompt: 'Count exactly 10 different shades of blue today.' },
-            { date: '2024-12-05', day: 'Thursday, Dec 5', prompt: 'Take a shower in the dark.' },
-            { date: '2024-12-06', day: 'Friday, Dec 6', prompt: 'Say out loud what you are doing, like a narrator.' },
-            { date: '2024-12-07', day: 'Saturday, Dec 7', prompt: 'Wear two different colored socks.' },
-            { date: '2024-12-08', day: 'Sunday, Dec 8', prompt: 'Send a photo of your shoes to a friend.' },
-            { date: '2024-12-09', day: 'Monday, Dec 9', prompt: 'Buy a pint of ice cream.' },
-            { date: '2024-12-10', day: 'Tuesday, Dec 10', prompt: "Go to McDonald's and try something you've never ordered before (A&W is allowed if needed)." },
-            { date: '2024-12-11', day: 'Wednesday, Dec 11', prompt: 'Say "thank you" in other languages (not English) for the entire day.' },
-            { date: '2024-12-12', day: 'Thursday, Dec 12', prompt: 'What is a common word you often misspell?' },
-            { date: '2024-12-13', day: 'Friday, Dec 13', prompt: 'What book changed your perspective on life?' },
-            { date: '2024-12-14', day: 'Saturday, Dec 14', prompt: 'What is your go-to comfort meal, and why?' },
-            { date: '2024-12-15', day: 'Sunday, Dec 15', prompt: "What's the worst advice you've ever received?" },
-            { date: '2024-12-16', day: 'Monday, Dec 16', prompt: 'What is one memory you wish you could revisit right now?' },
-            { date: '2024-12-17', day: 'Tuesday, Dec 17', prompt: 'What food would you trust to keep a secret?' },
-            { date: '2024-12-18', day: 'Wednesday, Dec 18', prompt: 'Try to guess the profession of the next person you see.' },
-            { date: '2024-12-19', day: 'Thursday, Dec 19', prompt: "Rewrite your name in a style you've never used before." },
-            { date: '2024-12-20', day: 'Friday, Dec 20', prompt: 'Record your voice for 30 seconds and play it back.' },
-            { date: '2024-12-21', day: 'Saturday, Dec 21', prompt: 'Change one tiny thing about your routine today on purpose.' },
-            { date: '2024-12-22', day: 'Sunday, Dec 22', prompt: 'Whisper a secret to a plant, real or imaginary.' },
-            { date: '2024-12-23', day: 'Monday, Dec 23', prompt: 'Rewrite a real memory as if it were fiction.' },
-            { date: '2024-12-24', day: 'Tuesday, Dec 24', prompt: 'Declare one part of your body "CEO of Today" and let it make a decision.' },
-            { date: '2024-12-25', day: 'Wednesday, Dec 25 🎄', prompt: 'Promote one inanimate object in your house to a higher social rank.' },
-            { date: '2024-12-26', day: 'Thursday, Dec 26', prompt: "Introduce yourself to the nearest object as if you've just landed on a new planet." },
-            { date: '2024-12-27', day: 'Friday, Dec 27', prompt: 'Identify the least important decision you made today and analyze it like a scientist.' },
-            { date: '2024-12-28', day: 'Saturday, Dec 28', prompt: 'If your mood today were a type of pasta, which shape would it be?' },
-            { date: '2024-12-29', day: 'Sunday, Dec 29', prompt: "What's one thing you wish Terri would ask you more often?" }
+            { date: '2025-12-02', day: 'Tuesday, Dec 2',  prompt: 'Notice five things you usually ignore during your commute.' },
+            { date: '2025-12-03', day: 'Wednesday, Dec 3', prompt: 'Touch three different textures with your eyes closed.' },
+            { date: '2025-12-04', day: 'Thursday, Dec 4', prompt: 'Take a 1-minute video of the view from your current location.' },
+            { date: '2025-12-05', day: 'Friday, Dec 5', prompt: 'Draw a quick sketch of your left hand.' },
+            { date: '2025-12-06', day: 'Saturday, Dec 6', prompt: 'Count exactly 10 different shades of blue today.' },
+            { date: '2025-12-07', day: 'Sunday, Dec 7', prompt: 'Take a shower in the dark.' },
+            { date: '2025-12-08', day: 'Monday, Dec 8', prompt: 'Say out loud what you are doing, like a narrator.' },
+            { date: '2025-12-09', day: 'Tuesday, Dec 9', prompt: 'Wear two different colored socks.' },
+            { date: '2025-12-10', day: 'Wednesday, Dec 10', prompt: 'Send a photo of your shoes to a friend.' },
+            { date: '2025-12-11', day: 'Thursday, Dec 11', prompt: 'Buy a pint of ice cream.' },
+            { date: '2025-12-12', day: 'Friday, Dec 12', prompt: "Go to McDonald's and try something you've never ordered before (A&W is allowed if needed)." },
+            { date: '2025-12-13', day: 'Saturday, Dec 13', prompt: 'Say "thank you" in other languages (not English) for the entire day.' },
+            { date: '2025-12-14', day: 'Sunday, Dec 14', prompt: 'What is a common word you often misspell?' },
+            { date: '2025-12-15', day: 'Monday, Dec 15', prompt: 'What book changed your perspective on life?' },
+            { date: '2025-12-16', day: 'Tuesday, Dec 16', prompt: 'What is your go-to comfort meal, and why?' },
+            { date: '2025-12-17', day: 'Wednesday, Dec 17', prompt: "What's the worst advice you've ever received?" },
+            { date: '2025-12-18', day: 'Thursday, Dec 18', prompt: 'What is one memory you wish you could revisit right now?' },
+            { date: '2025-12-19', day: 'Friday, Dec 19', prompt: 'What food would you trust to keep a secret?' },
+            { date: '2025-12-20', day: 'Saturday, Dec 20', prompt: 'Try to guess the profession of the next person you see.' },
+            { date: '2025-12-21', day: 'Sunday, Dec 21', prompt: "Rewrite your name in a style you've never used before." },
+            { date: '2025-12-22', day: 'Monday, Dec 22', prompt: 'Record your voice for 30 seconds and play it back.' },
+            { date: '2025-12-23', day: 'Tuesday, Dec 23', prompt: 'Change one tiny thing about your routine today on purpose.' },
+            { date: '2025-12-24', day: 'Wednesday, Dec 24', prompt: 'Whisper a secret to a plant, real or imaginary.' },
+            { date: '2025-12-25', day: 'Thursday, Dec 25 🎄', prompt: 'Rewrite a real memory as if it were fiction.' },
+            { date: '2025-12-26', day: 'Friday, Dec 26', prompt: 'Declare one part of your body "CEO of Today" and let it make a decision.' },
+            { date: '2025-12-27', day: 'Saturday, Dec 27', prompt: 'Promote one inanimate object in your house to a higher social rank.' },
+            { date: '2025-12-28', day: 'Sunday, Dec 28', prompt: "Introduce yourself to the nearest object as if you've just landed on a new planet." },
+            { date: '2025-12-29', day: 'Monday, Dec 29', prompt: 'Identify the least important decision you made today and analyze it like a scientist.' },
+            { date: '2025-12-30', day: 'Tuesday, Dec 30', prompt: 'If your mood today were a type of pasta, which shape would it be?' },
+            { date: '2025-12-31', day: 'Wednesday, Dec 31', prompt: "What's one thing you wish Terri would ask you more often?" }
         ];
 
         let completedDays = JSON.parse(localStorage.getItem('completedDays') || '[]');
