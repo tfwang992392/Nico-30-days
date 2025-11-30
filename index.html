@@ -123,6 +123,48 @@
             margin-bottom: 40px;
         }
 
+        .today-card-container {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .day-card.today {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            transform: scale(1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-card.today .day-number {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .day-card.today .day-date {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .day-card.today .today-label {
+            display: block;
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .day-card:not(.today) .today-label {
+            display: none;
+        }
+
         .day-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
@@ -311,6 +353,15 @@
                 flex-wrap: wrap;
                 width: 100%;
             }
+
+            .day-card.today {
+                max-width: 100%;
+                padding: 30px 25px;
+            }
+
+            .day-card.today .day-number {
+                font-size: 2rem;
+            }
             
             .calendar-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -357,36 +408,36 @@
 
     <script>
         const prompts = [
-            { date: '2025-12-02', day: 'Tuesday, Dec 2', prompt: 'Notice five things you usually ignore during your commute.' },
-            { date: '2025-12-03', day: 'Wednesday, Dec 3', prompt: 'Touch three different textures with your eyes closed.' },
-            { date: '2025-12-04', day: 'Thursday, Dec 4', prompt: 'Take a 1-minute video of the view from your current location.' },
-            { date: '2025-12-05', day: 'Friday, Dec 5', prompt: 'Draw a quick sketch of your left hand.' },
-            { date: '2025-12-06', day: 'Saturday, Dec 6', prompt: 'Count exactly 10 different shades of blue today.' },
-            { date: '2025-12-07', day: 'Sunday, Dec 7', prompt: 'Take a shower in the dark.' },
-            { date: '2025-12-08', day: 'Monday, Dec 8', prompt: 'Say out loud what you are doing, like a narrator.' },
-            { date: '2025-12-09', day: 'Tuesday, Dec 9', prompt: 'Wear two different colored socks.' },
-            { date: '2025-12-10', day: 'Wednesday, Dec 10', prompt: 'Send a photo of your shoes to a friend.' },
-            { date: '2025-12-11', day: 'Thursday, Dec 11', prompt: 'Buy a pint of ice cream.' },
-            { date: '2025-12-12', day: 'Friday, Dec 12', prompt: "Go to McDonald's and try something you've never ordered before (A&W is allowed if needed)." },
-            { date: '2025-12-13', day: 'Saturday, Dec 13', prompt: 'Say "thank you" in other languages (not English) for the entire day.' },
-            { date: '2025-12-14', day: 'Sunday, Dec 14', prompt: 'What is a common word you often misspell?' },
-            { date: '2025-12-15', day: 'Monday, Dec 15', prompt: 'What book changed your perspective on life?' },
-            { date: '2025-12-16', day: 'Tuesday, Dec 16', prompt: 'What is your go-to comfort meal, and why?' },
-            { date: '2025-12-17', day: 'Wednesday, Dec 17', prompt: "What's the worst advice you've ever received?" },
-            { date: '2025-12-18', day: 'Thursday, Dec 18', prompt: 'What is one memory you wish you could revisit right now?' },
-            { date: '2025-12-19', day: 'Friday, Dec 19', prompt: 'What food would you trust to keep a secret?' },
-            { date: '2025-12-20', day: 'Saturday, Dec 20', prompt: 'Try to guess the profession of the next person you see.' },
-            { date: '2025-12-21', day: 'Sunday, Dec 21', prompt: "Rewrite your name in a style you've never used before." },
-            { date: '2025-12-22', day: 'Monday, Dec 22', prompt: 'Record your voice for 30 seconds and play it back.' },
-            { date: '2025-12-23', day: 'Tuesday, Dec 23', prompt: 'Change one tiny thing about your routine today on purpose.' },
-            { date: '2025-12-24', day: 'Wednesday, Dec 24', prompt: 'Whisper a secret to a plant, real or imaginary.' },
-            { date: '2025-12-25', day: 'Thursday, Dec 25 🎄', prompt: 'Rewrite a real memory as if it were fiction.' },
-            { date: '2025-12-26', day: 'Friday, Dec 26', prompt: 'Declare one part of your body "CEO of Today" and let it make a decision.' },
-            { date: '2025-12-27', day: 'Saturday, Dec 27', prompt: 'Promote one inanimate object in your house to a higher social rank.' },
-            { date: '2025-12-28', day: 'Sunday, Dec 28', prompt: "Introduce yourself to the nearest object as if you've just landed on a new planet." },
-            { date: '2025-12-29', day: 'Monday, Dec 29', prompt: 'Identify the least important decision you made today and analyze it like a scientist.' },
-            { date: '2025-12-30', day: 'Tuesday, Dec 30', prompt: 'If your mood today were a type of pasta, which shape would it be?' },
-            { date: '2025-12-31', day: 'Wednesday, Dec 31 🎉', prompt: "What's one thing you wish Terri would ask you more often?" }
+            { date: '2024-11-30', day: 'Saturday, Nov 30', prompt: 'Notice five things you usually ignore during your commute.' },
+            { date: '2024-12-01', day: 'Sunday, Dec 1', prompt: 'Touch three different textures with your eyes closed.' },
+            { date: '2024-12-02', day: 'Monday, Dec 2', prompt: 'Take a 1-minute video of the view from your current location.' },
+            { date: '2024-12-03', day: 'Tuesday, Dec 3', prompt: 'Draw a quick sketch of your left hand.' },
+            { date: '2024-12-04', day: 'Wednesday, Dec 4', prompt: 'Count exactly 10 different shades of blue today.' },
+            { date: '2024-12-05', day: 'Thursday, Dec 5', prompt: 'Take a shower in the dark.' },
+            { date: '2024-12-06', day: 'Friday, Dec 6', prompt: 'Say out loud what you are doing, like a narrator.' },
+            { date: '2024-12-07', day: 'Saturday, Dec 7', prompt: 'Wear two different colored socks.' },
+            { date: '2024-12-08', day: 'Sunday, Dec 8', prompt: 'Send a photo of your shoes to a friend.' },
+            { date: '2024-12-09', day: 'Monday, Dec 9', prompt: 'Buy a pint of ice cream.' },
+            { date: '2024-12-10', day: 'Tuesday, Dec 10', prompt: "Go to McDonald's and try something you've never ordered before (A&W is allowed if needed)." },
+            { date: '2024-12-11', day: 'Wednesday, Dec 11', prompt: 'Say "thank you" in other languages (not English) for the entire day.' },
+            { date: '2024-12-12', day: 'Thursday, Dec 12', prompt: 'What is a common word you often misspell?' },
+            { date: '2024-12-13', day: 'Friday, Dec 13', prompt: 'What book changed your perspective on life?' },
+            { date: '2024-12-14', day: 'Saturday, Dec 14', prompt: 'What is your go-to comfort meal, and why?' },
+            { date: '2024-12-15', day: 'Sunday, Dec 15', prompt: "What's the worst advice you've ever received?" },
+            { date: '2024-12-16', day: 'Monday, Dec 16', prompt: 'What is one memory you wish you could revisit right now?' },
+            { date: '2024-12-17', day: 'Tuesday, Dec 17', prompt: 'What food would you trust to keep a secret?' },
+            { date: '2024-12-18', day: 'Wednesday, Dec 18', prompt: 'Try to guess the profession of the next person you see.' },
+            { date: '2024-12-19', day: 'Thursday, Dec 19', prompt: "Rewrite your name in a style you've never used before." },
+            { date: '2024-12-20', day: 'Friday, Dec 20', prompt: 'Record your voice for 30 seconds and play it back.' },
+            { date: '2024-12-21', day: 'Saturday, Dec 21', prompt: 'Change one tiny thing about your routine today on purpose.' },
+            { date: '2024-12-22', day: 'Sunday, Dec 22', prompt: 'Whisper a secret to a plant, real or imaginary.' },
+            { date: '2024-12-23', day: 'Monday, Dec 23', prompt: 'Rewrite a real memory as if it were fiction.' },
+            { date: '2024-12-24', day: 'Tuesday, Dec 24', prompt: 'Declare one part of your body "CEO of Today" and let it make a decision.' },
+            { date: '2024-12-25', day: 'Wednesday, Dec 25 🎄', prompt: 'Promote one inanimate object in your house to a higher social rank.' },
+            { date: '2024-12-26', day: 'Thursday, Dec 26', prompt: "Introduce yourself to the nearest object as if you've just landed on a new planet." },
+            { date: '2024-12-27', day: 'Friday, Dec 27', prompt: 'Identify the least important decision you made today and analyze it like a scientist.' },
+            { date: '2024-12-28', day: 'Saturday, Dec 28', prompt: 'If your mood today were a type of pasta, which shape would it be?' },
+            { date: '2024-12-29', day: 'Sunday, Dec 29', prompt: "What's one thing you wish Terri would ask you more often?" }
         ];
 
         let completedDays = JSON.parse(localStorage.getItem('completedDays') || '[]');
@@ -450,8 +501,50 @@
         function renderCalendar() {
             const calendar = document.getElementById('calendar');
             calendar.innerHTML = '';
+            const today = getTodayDate();
+
+            // Find today's card
+            let todayCard = null;
+            let todayIndex = -1;
 
             prompts.forEach((item, index) => {
+                if (item.date === today) {
+                    todayIndex = index;
+                }
+            });
+
+            // Render today's card first (enlarged)
+            if (todayIndex !== -1) {
+                const item = prompts[todayIndex];
+                const todayContainer = document.createElement('div');
+                todayContainer.className = 'today-card-container';
+                
+                const card = document.createElement('div');
+                card.className = 'day-card today';
+                
+                const isCompleted = completedDays.includes(item.date);
+                
+                if (isCompleted) {
+                    card.classList.add('completed');
+                }
+
+                card.innerHTML = `
+                    ${isCompleted ? '<div class="checkmark">✓</div>' : ''}
+                    <div class="day-number">Day ${todayIndex + 1}</div>
+                    <div class="day-date">${item.day}</div>
+                    <div class="today-label">Today</div>
+                `;
+
+                card.onclick = () => openModal(todayIndex);
+                todayContainer.appendChild(card);
+                calendar.appendChild(todayContainer);
+            }
+
+            // Render all other cards
+            prompts.forEach((item, index) => {
+                // Skip today's card as it's already rendered
+                if (index === todayIndex) return;
+                
                 const card = document.createElement('div');
                 card.className = 'day-card';
                 
