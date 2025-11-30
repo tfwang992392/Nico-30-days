@@ -63,8 +63,9 @@
         }
 
         .streak-container {
-            background: #fafafa;
-            border: 1px solid #e0e0e0;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(224, 224, 224, 0.5);
             border-radius: 12px;
             padding: 25px 30px;
             margin-bottom: 40px;
@@ -123,8 +124,9 @@
         }
 
         .day-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(224, 224, 224, 0.5);
             border-radius: 8px;
             padding: 24px 20px;
             cursor: pointer;
@@ -134,13 +136,14 @@
         }
 
         .day-card:hover:not(.locked) {
-            border-color: #000000;
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(0, 0, 0, 0.3);
             transform: translateY(-2px);
         }
 
         .day-card.completed {
-            background: #000000;
-            border-color: #000000;
+            background: rgba(0, 0, 0, 0.85);
+            border-color: rgba(0, 0, 0, 0.9);
         }
 
         .day-card.locked {
@@ -198,7 +201,8 @@
         }
 
         .modal-content {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             border-radius: 12px;
             padding: 50px 40px;
             max-width: 600px;
