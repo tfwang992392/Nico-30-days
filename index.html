@@ -1,125 +1,161 @@
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overthinking 30 Days</title>
 
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-        background: linear-gradient(135deg, #c98d83 0%, #8b4747 50%, #5c3838 100%);
-        min-height: 100vh;
-        padding: 40px 20px;
-        color: #2d1f1f;
-        position: relative;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
 
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://tfwang992392.github.io/Nico-30-days/background.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.03;
-        z-index: -1;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Floating bubbles animation */
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0) rotate(0deg);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #c98d83 0%, #8b4747 50%, #5c3838 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #2d1f1f;
+            position: relative;
         }
-        50% {
-            transform: translateY(-20px) rotate(5deg);
-        }
-    }
 
-    @keyframes pop-in {
-        0% {
-            transform: scale(0);
-            opacity: 0;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 假設這個圖片路徑是正確的 */
+            background-image: url('https://tfwang992392.github.io/Nico-30-days/background.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.03;
+            z-index: -1;
         }
-        50% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
 
-    @keyframes sparkle {
-        0%, 100% {
-            transform: scale(1) rotate(0deg);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        /* Floating bubbles animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
-        50% {
-            transform: scale(0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-        }
-    }
 
-    @keyframes modal-sparkle {
-        0% {
-            transform: scale(0);
-            opacity: 0;
+        @keyframes pop-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
-        70% {
-            transform: scale(1.08);
-            opacity: 1;
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            }
+            50% {
+                transform: scale(0.95);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            }
         }
-        85% {
-            transform: scale(0.95);
+
+        @keyframes modal-sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+            85% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
-        100% {
-            transform: scale(1);
-            opacity: 1;
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
-    }
 
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
+        /* 🌟 HEADER 樣式：無邊框，無陰影 🌟 */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: none; /* 移除背景顏色 */
+            border-radius: 0; /* 移除圓角 */
+            box-shadow: none; /* 移除陰影 */
+            border: none; /* 移除邊框 */
+        }
 
-    /* 🚀 HEADER 樣式修改：移除所有邊框和陰影 🚀 */
-    header {
-        text-align: center;
-        margin-bottom: 60px;
-        padding: 40px 20px;
-        /* 深紅棕色背景 (可保留或設為none，視您想不想要顏色背景) */
-        background: none; /* 設為 none 移除背景顏色 */
-        border-radius: 0; /* 移除圓角 */
-        box-shadow: none; /* 移除陰影 */
-        border: none; /* 移除邊框 */
-    }
+        h1 {
+            /* 採用 Patrick Hand 字體 */
+            font-family: 'Patrick Hand', cursive; 
+            font-size: 4.5rem; 
+            font-weight: 400; 
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: #ffffff; /* 白色 */
+            line-height: 1.2;
+            display: block; 
+        }
 
-    h1 {
-        /* 採用 Patrick Hand 字體，並放大、改色 */
-        font-family: 'Patrick Hand', cursive; 
-        font-size: 4.5rem; 
-        font-weight: 400; 
-        margin-bottom: 8px;
-        letter-spacing: 0.5px;
-        color: #ffffff; /* 白色 */
-        line-height: 1.2;
-        display: block; 
-    }
+        .subtitle {
+            /* 調整字體大小、顏色和設為斜體 */
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: 1.5rem; 
+            color: rgba(255, 255, 255, 0.85); /* 淺白色 */
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            font-style: italic; /* 斜體 */
+            display: block; 
+        }
+        
+        .header-image {
+            display: none;
+        }
+        /* 🌟 HEADER 樣式修改結束 🌟 */
 
-    .subtitle {
-        /* 調整字體大小、顏色和設為斜體 */
-        font-family: 'Times New Roman', Times, serif; 
-        font-size: 1.5rem; 
-        color: rgba(255, 255, 255, 0.85); /* 淺白色 */
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        font-style: italic; /* 斜體 */
-        display: block; 
-    }
-    
-    /* 確保圖片樣式不會干擾 (若切回文字標題，這兩個會被 h
+        .streak-container {
+            background: rgba(245, 230, 224, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(200, 160, 150, 0.3);
+            border-radius: 50px;
+            padding: 25px 35px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 8px 32px rgba(60, 30, 30, 0.3);
+        }
+
+        .streak-info {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .streak-label {
+            font-size: 0.75rem;
+            color: #8
