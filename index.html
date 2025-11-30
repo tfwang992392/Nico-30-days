@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overthinking 30 Days</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
+    
 
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -96,36 +96,27 @@
             margin: 0 auto;
         }
 
-        /* 🌟 HEADER 樣式修改開始 (配合圖片) 🌟 */
+        /* 🌟 HEADER 樣式修改開始 (直接替換為圖片) 🌟 */
         header {
             text-align: center;
             margin-bottom: 60px;
             padding: 40px 20px;
-            /* 為了模仿圖片的深紅棕色背景 */
-            background: #6b2e29; 
+            /* 圖片本身可能帶有背景，所以這裡設為none。如果圖片是透明的，可以保留底色 #6b2e29 */
+            background: none; 
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 保留陰影效果 */
         }
 
-        h1 {
-            /* 採用 Patrick Hand 字體，並放大、改色 */
-            font-family: 'Patrick Hand', cursive; 
-            font-size: 4.5rem; 
-            font-weight: 400; 
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-            color: #ffffff; /* 白色 */
-            line-height: 1.2;
+        .header-image {
+            max-width: 80%; /* 限制圖片最大寬度，使其在小螢幕上縮小 */
+            height: auto; /* 高度自動調整，保持圖片比例 */
+            display: block; /* 讓圖片居中 */
+            margin: 0 auto; /* 居中圖片 */
         }
 
-        .subtitle {
-            /* 調整字體大小、顏色和設為斜體 */
-            font-family: 'Times New Roman', Times, serif; 
-            font-size: 1.5rem; 
-            color: rgba(255, 255, 255, 0.85); /* 淺白色 */
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            font-style: italic; /* 斜體 */
+        /* 隱藏 H1 和 .subtitle 的所有 CSS 樣式，因為它們現在由圖片取代 */
+        h1, .subtitle {
+            display: none; /* 直接隱藏這兩個元素 */
         }
         /* 🌟 HEADER 樣式修改結束 🌟 */
 
@@ -199,3 +190,45 @@
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
+            justify-items: center;
+        }
+
+        .today-card-container {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .day-card.today {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 80px;
+            padding: 50px 40px;
+            background: rgba(245, 230, 224, 0.9);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(200, 160, 150, 0.5);
+            transform: scale(1);
+            box-shadow: 0 12px 50px rgba(60, 30, 30, 0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .day-card.today:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 16px 60px rgba(60, 30, 30, 0.4);
+        }
+
+        .day-card.today .day-number {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            color: #5c3838;
+        }
+
+        .day-card.today .day-date {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #8b4747;
+        }
+
+        .day
