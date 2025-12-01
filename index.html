@@ -79,6 +79,290 @@
         }
     }
 
+    @keyframes christmas-twinkle {
+        0%, 100% {
+            box-shadow: 0 0 10px rgba(220, 20, 60, 0.6), 
+                        0 0 20px rgba(34, 139, 34, 0.4),
+                        0 0 30px rgba(220, 20, 60, 0.3);
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.8), 
+                        0 0 25px rgba(34, 139, 34, 0.6),
+                        0 0 35px rgba(220, 20, 60, 0.5);
+            transform: scale(1.05) rotate(2deg);
+        }
+        50% {
+            box-shadow: 0 0 20px rgba(34, 139, 34, 0.8), 
+                        0 0 30px rgba(220, 20, 60, 0.6),
+                        0 0 40px rgba(34, 139, 34, 0.5);
+            transform: scale(1.08) rotate(-2deg);
+        }
+        75% {
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.8), 
+                        0 0 25px rgba(34, 139, 34, 0.6),
+                        0 0 35px rgba(220, 20, 60, 0.5);
+            transform: scale(1.05) rotate(2deg);
+        }
+    }
+
+    @keyframes christmas-sparkle {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes birthday-celebration {
+        0%, 100% {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 
+                        0 0 25px rgba(255, 20, 147, 0.5),
+                        0 0 35px rgba(138, 43, 226, 0.4),
+                        0 0 45px rgba(30, 144, 255, 0.3);
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.8), 
+                        0 0 30px rgba(255, 215, 0, 0.6),
+                        0 0 40px rgba(30, 144, 255, 0.5),
+                        0 0 50px rgba(138, 43, 226, 0.4);
+            transform: scale(1.06) rotate(3deg);
+        }
+        50% {
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.8), 
+                        0 0 35px rgba(30, 144, 255, 0.6),
+                        0 0 45px rgba(255, 215, 0, 0.5),
+                        0 0 55px rgba(255, 20, 147, 0.4);
+            transform: scale(1.1) rotate(-3deg);
+        }
+        75% {
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 
+                        0 0 30px rgba(138, 43, 226, 0.6),
+                        0 0 40px rgba(255, 20, 147, 0.5),
+                        0 0 50px rgba(255, 215, 0, 0.4);
+            transform: scale(1.06) rotate(3deg);
+        }
+    }
+
+    @keyframes birthday-bounce {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: translateY(-5px) scale(1.15);
+            opacity: 0.9;
+        }
+    }
+
+    @keyframes birthday-float {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+        33% {
+            transform: translateY(-8px) rotate(5deg);
+        }
+        66% {
+            transform: translateY(-4px) rotate(-5deg);
+        }
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    @keyframes newyear-fireworks {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 
+                        0 0 30px rgba(192, 192, 192, 0.6),
+                        0 0 40px rgba(255, 215, 0, 0.5),
+                        0 0 50px rgba(255, 255, 255, 0.4),
+                        0 0 60px rgba(192, 192, 192, 0.3);
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            box-shadow: 0 0 25px rgba(192, 192, 192, 0.9), 
+                        0 0 35px rgba(255, 215, 0, 0.7),
+                        0 0 45px rgba(255, 255, 255, 0.6),
+                        0 0 55px rgba(255, 215, 0, 0.5),
+                        0 0 65px rgba(192, 192, 192, 0.4);
+            transform: scale(1.08) rotate(5deg);
+        }
+        50% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 
+                        0 0 40px rgba(192, 192, 192, 0.8),
+                        0 0 50px rgba(255, 215, 0, 0.7),
+                        0 0 60px rgba(255, 255, 255, 0.6),
+                        0 0 70px rgba(255, 215, 0, 0.5);
+            transform: scale(1.12) rotate(-5deg);
+        }
+        75% {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 
+                        0 0 35px rgba(255, 255, 255, 0.7),
+                        0 0 45px rgba(192, 192, 192, 0.6),
+                        0 0 55px rgba(255, 215, 0, 0.5),
+                        0 0 65px rgba(255, 255, 255, 0.4);
+            transform: scale(1.08) rotate(5deg);
+        }
+    }
+
+    @keyframes newyear-sparkle {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            opacity: 0.8;
+            transform: scale(1.2) rotate(90deg);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.3) rotate(180deg);
+        }
+        75% {
+            opacity: 0.8;
+            transform: scale(1.2) rotate(270deg);
+        }
+    }
+
+    @keyframes newyear-burst {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.3);
+            opacity: 0.9;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bubble-float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-4px);
+        }
+    }
+
+    @keyframes bubble-pop {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+            border-width: 2px;
+        }
+        30% {
+            transform: scale(1.08);
+            opacity: 0.8;
+            border-width: 1px;
+        }
+        60% {
+            transform: scale(0.92);
+            opacity: 0.4;
+            border-width: 0.5px;
+        }
+        100% {
+            transform: scale(0.85);
+            opacity: 0;
+            border-width: 0px;
+        }
+    }
+
+    @keyframes particle-burst-1 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(30px, -20px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-2 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(-25px, -30px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-3 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(35px, 25px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-4 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(-30px, 20px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-5 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(20px, 35px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-6 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(-20px, -35px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-7 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(40px, -10px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes particle-burst-8 {
+        0% {
+            transform: translate(0, 0) scale(0.3);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(-35px, 15px) scale(0.1);
+            opacity: 0;
+        }
+    }
+
     .container {
         max-width: 900px;
         margin: 0 auto;
@@ -109,6 +393,7 @@
         margin: 30px auto 0;
         border-radius: 15px;
         box-shadow: none;
+        transform: scale(1.5);
     }
 
     h1, .subtitle {
@@ -120,7 +405,7 @@
         backdrop-filter: blur(10px);
         border: 2px solid rgba(200, 160, 150, 0.3);
         border-radius: 50px;
-        padding: 25px 35px;
+        padding: 15px 25px;
         margin-bottom: 40px;
         display: flex;
         align-items: center;
@@ -133,6 +418,7 @@
         display: flex;
         align-items: baseline;
         gap: 12px;
+        margin-bottom: 0px;
     }
 
     .streak-label {
@@ -151,14 +437,18 @@
     }
 
     .streak-visual {
-        display: flex;
-        gap: 6px;
-        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 4px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .streak-day {
-        width: 28px;
-        height: 28px;
+        width: 100%;
+        aspect-ratio: 1;
+        max-width: 28px;
         border-radius: 50%;
         background: rgba(232, 208, 200, 0.5);
         border: 2px solid rgba(200, 160, 150, 0.4);
@@ -172,10 +462,329 @@
         box-shadow: 0 4px 12px rgba(107, 61, 61, 0.4);
     }
 
+    .streak-day.christmas {
+        background: linear-gradient(135deg, #dc143c, #228b22);
+        border-color: rgba(220, 20, 60, 0.9);
+        animation: christmas-sparkle 2s ease-in-out infinite;
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.6), 
+                    0 0 20px rgba(34, 139, 34, 0.4);
+    }
+
+    .streak-day.birthday {
+        background: linear-gradient(135deg, #ffd700, #ff1493, #8a2be2, #1e90ff);
+        border-color: rgba(255, 215, 0, 0.9);
+        animation: birthday-bounce 1.5s ease-in-out infinite, 
+                   christmas-sparkle 2s ease-in-out infinite;
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.7), 
+                    0 0 25px rgba(255, 20, 147, 0.5),
+                    0 0 30px rgba(138, 43, 226, 0.4);
+    }
+
+    .streak-day.newyear {
+        background: linear-gradient(135deg, #ffd700, #c0c0c0, #ffffff, #ffd700);
+        border-color: rgba(255, 215, 0, 0.9);
+        animation: newyear-burst 2s ease-in-out infinite, 
+                   newyear-sparkle 3s ease-in-out infinite;
+        box-shadow: 0 4px 25px rgba(255, 215, 0, 0.8), 
+                    0 0 30px rgba(192, 192, 192, 0.6),
+                    0 0 35px rgba(255, 255, 255, 0.5);
+    }
+
+    .today-big-card {
+        background: rgba(245, 230, 224, 0.9);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(200, 160, 150, 0.3);
+        border-radius: 50%;
+        padding: 25px 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 32px rgba(60, 30, 30, 0.3);
+        text-align: center;
+        animation: pop-in 0.5s ease;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 280px;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .today-big-card.bubble-state {
+        background: rgba(245, 230, 224, 0.85);
+        box-shadow: 0 8px 40px rgba(60, 30, 30, 0.4), 
+                    0 0 20px rgba(200, 160, 150, 0.3);
+        animation: bubble-float 4s ease-in-out infinite;
+        overflow: visible;
+    }
+
+    .today-big-card.bubble-state.poping {
+        animation: bubble-pop 0.6s ease-out forwards;
+    }
+
+    .bubble-particles {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .bubble-particle {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(245, 230, 224, 0.9);
+        border: 1px solid rgba(200, 160, 150, 0.6);
+        box-shadow: 0 0 8px rgba(200, 160, 150, 0.4);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .bubble-particle:nth-child(1) {
+        animation: particle-burst-1 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(2) {
+        animation: particle-burst-2 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(3) {
+        animation: particle-burst-3 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(4) {
+        animation: particle-burst-4 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(5) {
+        animation: particle-burst-5 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(6) {
+        animation: particle-burst-6 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(7) {
+        animation: particle-burst-7 0.6s ease-out forwards;
+    }
+
+    .bubble-particle:nth-child(8) {
+        animation: particle-burst-8 0.6s ease-out forwards;
+    }
+
+    .bubble-cta {
+        font-size: 1.3rem;
+        color: #8b4747;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-align: center;
+        display: none;
+    }
+
+    .today-big-card.bubble-state .bubble-cta {
+        display: block;
+    }
+
+    .today-big-card.bubble-state .today-big-card-day,
+    .today-big-card.bubble-state .today-big-card-date,
+    .today-big-card.bubble-state .today-big-card-prompt,
+    .today-big-card.bubble-state .today-big-card-btn {
+        display: none;
+    }
+
+    .today-big-card.revealed .bubble-cta {
+        display: none;
+    }
+
+
+    .today-big-card:not(.coming-soon):hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(60, 30, 30, 0.4);
+        border-color: rgba(160, 96, 90, 0.5);
+    }
+
+    .today-big-card.coming-soon {
+        cursor: default;
+    }
+
+    .today-big-card.coming-soon {
+        opacity: 0.7;
+    }
+
+    .today-big-card-day {
+        font-size: 0.9rem;
+        color: #8b4747;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .today-big-card-date {
+        font-size: 0.85rem;
+        color: #a0605a;
+        margin-bottom: 15px;
+        font-weight: 400;
+    }
+
+    .today-big-card-prompt {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #5c3838;
+        font-weight: 300;
+        letter-spacing: -0.3px;
+    }
+
+    .today-big-card.coming-soon .today-big-card-prompt {
+        font-size: 1.3rem;
+        color: #8b4747;
+        font-weight: 400;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .today-big-card-btn {
+        background: linear-gradient(135deg, #a0605a, #6b3d3d);
+        color: #f5e6e0;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 24px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(107, 61, 61, 0.4);
+        margin-top: 15px;
+    }
+
+    .today-big-card-btn.completed {
+        background: rgba(245, 230, 224, 0.9);
+        color: #5c3838;
+        border: 2px solid rgba(200, 160, 150, 0.6);
+    }
+
+    .today-big-card-btn.completed:hover {
+        background: rgba(245, 230, 224, 1);
+    }
+
+    .today-big-card-btn:hover {
+        background: linear-gradient(135deg, #8b4a45, #5c3030);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(107, 61, 61, 0.5);
+    }
+
+    .today-big-card.completed {
+        background: linear-gradient(135deg, rgba(160, 96, 90, 0.2), rgba(107, 61, 61, 0.15), rgba(245, 230, 224, 0.9));
+        border-color: rgba(107, 61, 61, 0.6);
+    }
+
+    .today-big-card.completed .today-big-card-prompt {
+        color: #6b3d3d;
+    }
+
+    .today-big-card.christmas {
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(34, 139, 34, 0.15), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(220, 20, 60, 0.6);
+        animation: christmas-twinkle 3s ease-in-out infinite;
+    }
+
+    .today-big-card.christmas::before {
+        content: '✨';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+        animation: christmas-sparkle 1.5s ease-in-out infinite;
+    }
+
+    .today-big-card.christmas::after {
+        content: '✨';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        animation: christmas-sparkle 1.5s ease-in-out infinite 0.75s;
+    }
+
+    .today-big-card.christmas.completed {
+        background: linear-gradient(135deg, #dc143c, #228b22);
+        border-color: rgba(220, 20, 60, 0.9);
+    }
+
+    .today-big-card.birthday {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 20, 147, 0.15), rgba(138, 43, 226, 0.15), rgba(30, 144, 255, 0.15), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(255, 215, 0, 0.7);
+        animation: birthday-celebration 3s ease-in-out infinite;
+    }
+
+    .today-big-card.birthday::before {
+        content: '🎈';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.6rem;
+        animation: birthday-float 2s ease-in-out infinite;
+    }
+
+    .today-big-card.birthday::after {
+        content: '🎉';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.6rem;
+        animation: birthday-float 2s ease-in-out infinite 1s;
+    }
+
+    .today-big-card.birthday.completed {
+        background: linear-gradient(135deg, #ffd700, #ff1493, #8a2be2, #1e90ff);
+        border-color: rgba(255, 215, 0, 0.9);
+    }
+
+    .today-big-card.newyear {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(192, 192, 192, 0.2), rgba(255, 255, 255, 0.2), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(255, 215, 0, 0.8);
+        animation: newyear-fireworks 4s ease-in-out infinite;
+    }
+
+    .today-big-card.newyear::before {
+        content: '🎆';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.6rem;
+        animation: newyear-sparkle 2s ease-in-out infinite;
+    }
+
+    .today-big-card.newyear::after {
+        content: '🎊';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.6rem;
+        animation: newyear-sparkle 2s ease-in-out infinite 1s;
+    }
+
+    .today-big-card.newyear.completed {
+        background: linear-gradient(135deg, #ffd700, #c0c0c0, #ffffff, #ffd700);
+        border-color: rgba(255, 215, 0, 0.95);
+    }
+
     .calendar-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
         margin-bottom: 40px;
         justify-items: center;
     }
@@ -237,8 +846,8 @@
         backdrop-filter: blur(10px);
         border: 2px solid rgba(200, 160, 150, 0.4);
         border-radius: 50%;
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -269,16 +878,193 @@
     }
 
     .day-card.locked {
-        opacity: 0.25;
+        opacity: 0.3;
         cursor: not-allowed;
         animation: none;
+        position: relative;
+    }
+
+    .day-card.locked::before {
+        content: '🔒';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        opacity: 0.6;
+        z-index: 2;
+    }
+
+    .day-card.locked .day-number,
+    .day-card.locked .day-date {
+        opacity: 0.4;
+    }
+
+    .day-card.christmas {
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(34, 139, 34, 0.15), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(220, 20, 60, 0.6);
+        animation: christmas-twinkle 3s ease-in-out infinite;
+        position: relative;
+    }
+
+    .day-card.christmas::before {
+        content: '✨';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 1.2rem;
+        animation: christmas-sparkle 1.5s ease-in-out infinite;
+    }
+
+    .day-card.christmas::after {
+        content: '✨';
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        animation: christmas-sparkle 1.5s ease-in-out infinite 0.75s;
+    }
+
+    .day-card.christmas.completed {
+        background: linear-gradient(135deg, #dc143c, #228b22);
+        border-color: rgba(220, 20, 60, 0.9);
+        box-shadow: 0 8px 30px rgba(220, 20, 60, 0.5), 
+                    0 0 40px rgba(34, 139, 34, 0.3);
+    }
+
+    .day-card.christmas:hover:not(.locked) {
+        transform: translateY(-8px) scale(1.08);
+        box-shadow: 0 12px 40px rgba(220, 20, 60, 0.6), 
+                    0 0 50px rgba(34, 139, 34, 0.4);
+    }
+
+    .day-card.christmas .day-number {
+        color: #dc143c;
+        text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+    }
+
+    .day-card.christmas.completed .day-number {
+        color: #fff;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    .day-card.birthday {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 20, 147, 0.15), rgba(138, 43, 226, 0.15), rgba(30, 144, 255, 0.15), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(255, 215, 0, 0.7);
+        animation: birthday-celebration 3s ease-in-out infinite;
+        position: relative;
+    }
+
+    .day-card.birthday::before {
+        content: '🎈';
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-size: 1.3rem;
+        animation: birthday-float 2s ease-in-out infinite;
+    }
+
+    .day-card.birthday::after {
+        content: '🎉';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        font-size: 1.3rem;
+        animation: birthday-float 2s ease-in-out infinite 1s;
+    }
+
+    .day-card.birthday.completed {
+        background: linear-gradient(135deg, #ffd700, #ff1493, #8a2be2, #1e90ff);
+        border-color: rgba(255, 215, 0, 0.9);
+        box-shadow: 0 8px 35px rgba(255, 215, 0, 0.6), 
+                    0 0 45px rgba(255, 20, 147, 0.5),
+                    0 0 55px rgba(138, 43, 226, 0.4),
+                    0 0 65px rgba(30, 144, 255, 0.3);
+    }
+
+    .day-card.birthday:hover:not(.locked) {
+        transform: translateY(-10px) scale(1.1);
+        box-shadow: 0 15px 50px rgba(255, 215, 0, 0.7), 
+                    0 0 60px rgba(255, 20, 147, 0.6),
+                    0 0 70px rgba(138, 43, 226, 0.5),
+                    0 0 80px rgba(30, 144, 255, 0.4);
+    }
+
+    .day-card.birthday .day-number {
+        color: #ff1493;
+        text-shadow: 0 0 12px rgba(255, 20, 147, 0.6),
+                     0 0 20px rgba(255, 215, 0, 0.4);
+        animation: birthday-bounce 2s ease-in-out infinite;
+    }
+
+    .day-card.birthday.completed .day-number {
+        color: #fff;
+        text-shadow: 0 0 18px rgba(255, 255, 255, 0.9),
+                     0 0 30px rgba(255, 215, 0, 0.6);
+    }
+
+    .day-card.newyear {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(192, 192, 192, 0.2), rgba(255, 255, 255, 0.2), rgba(245, 230, 224, 0.85));
+        border: 3px solid rgba(255, 215, 0, 0.8);
+        animation: newyear-fireworks 4s ease-in-out infinite;
+        position: relative;
+    }
+
+    .day-card.newyear::before {
+        content: '🎆';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 1.4rem;
+        animation: newyear-sparkle 2s ease-in-out infinite;
+    }
+
+    .day-card.newyear::after {
+        content: '🎊';
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 1.4rem;
+        animation: newyear-sparkle 2s ease-in-out infinite 1s;
+    }
+
+    .day-card.newyear.completed {
+        background: linear-gradient(135deg, #ffd700, #c0c0c0, #ffffff, #ffd700);
+        border-color: rgba(255, 215, 0, 0.95);
+        box-shadow: 0 8px 40px rgba(255, 215, 0, 0.7), 
+                    0 0 50px rgba(192, 192, 192, 0.6),
+                    0 0 60px rgba(255, 255, 255, 0.5),
+                    0 0 70px rgba(255, 215, 0, 0.4);
+    }
+
+    .day-card.newyear:hover:not(.locked) {
+        transform: translateY(-12px) scale(1.12);
+        box-shadow: 0 18px 60px rgba(255, 215, 0, 0.8), 
+                    0 0 70px rgba(192, 192, 192, 0.7),
+                    0 0 80px rgba(255, 255, 255, 0.6),
+                    0 0 90px rgba(255, 215, 0, 0.5);
+    }
+
+    .day-card.newyear .day-number {
+        color: #ffd700;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.7),
+                     0 0 25px rgba(192, 192, 192, 0.5),
+                     0 0 35px rgba(255, 255, 255, 0.4);
+        animation: newyear-burst 2.5s ease-in-out infinite;
+    }
+
+    .day-card.newyear.completed .day-number {
+        color: #fff;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                     0 0 35px rgba(255, 215, 0, 0.8),
+                     0 0 50px rgba(192, 192, 192, 0.6);
     }
 
     .day-number {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 600;
         color: #5c3838;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         letter-spacing: -0.5px;
     }
 
@@ -287,7 +1073,7 @@
     }
 
     .day-date {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         color: #8b4747;
         font-weight: 400;
     }
@@ -461,23 +1247,116 @@
     }
 
     @media (max-width: 768px) {
+        body {
+            padding: 10px 15px;
+        }
+
+        .container {
+            max-width: 100%;
+        }
+
         .header-image {
             max-width: 95%;
         }
         .header-image-secondary {
-            max-width: 70%;
-            margin-top: 20px;
+            max-width: 75%;
+            margin-top: 5px;
+            transform: scale(1.0);
+        }
+
+        header {
+            margin-bottom: 15px;
+            padding: 10px 10px;
         }
 
         .streak-container {
             flex-direction: column;
             align-items: flex-start;
-            padding: 20px;
+            padding: 12px 15px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .streak-info {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+
+        .today-big-card {
+            margin-bottom: 20px;
         }
 
         .streak-visual {
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 3px;
             width: 100%;
+        }
+
+        .streak-day {
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 20px;
+        }
+
+        .today-big-card {
+            width: 80vw;
+            height: 80vw;
+            max-width: 280px;
+            max-height: 280px;
+            padding: 20px 18px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .bubble-cta {
+            font-size: 1.1rem;
+        }
+
+        .today-big-card-day {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .today-big-card-date {
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .today-big-card-prompt {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .today-big-card.coming-soon .today-big-card-prompt {
+            font-size: 1.2rem;
+        }
+
+        .today-big-card-btn {
+            padding: 10px 20px;
+            font-size: 0.75rem;
+            margin-top: 15px;
+        }
+
+        .calendar-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .day-card {
+            width: 100px;
+            height: 100px;
+        }
+
+        .day-number {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .day-date {
+            font-size: 0.65rem;
         }
 
         .day-card.today {
@@ -495,29 +1374,81 @@
         }
 
         .modal-content {
-            width: 90vw;
-            height: 90vw;
-            max-width: 400px;
-            max-height: 400px;
-            padding: 40px 30px;
+            width: 85vw;
+            height: 85vw;
+            max-width: 350px;
+            max-height: 350px;
+            padding: 35px 25px;
         }
 
         .modal-prompt {
-            font-size: 1.1rem;
-            max-width: 300px;
+            font-size: 1rem;
+            max-width: 280px;
+            line-height: 1.5;
         }
 
-        .calendar-grid {
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 12px;
-        }
-
-        .modal-content {
-            padding: 40px 30px;
-        }
-
-        .modal-prompt {
+        .modal-day {
             font-size: 1.2rem;
+        }
+
+        .modal-date {
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        .complete-btn {
+            padding: 14px 35px;
+            font-size: 0.9rem;
+            margin-top: 25px;
+        }
+
+        .close-btn {
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .calendar-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .day-card {
+            width: 90px;
+            height: 90px;
+        }
+
+        .day-number {
+            font-size: 1.2rem;
+        }
+
+        .day-date {
+            font-size: 0.6rem;
+        }
+
+        .today-big-card {
+            width: 75vw;
+            height: 75vw;
+            max-width: 260px;
+            max-height: 260px;
+            padding: 18px 15px;
+            margin-bottom: 12px;
+        }
+
+        .today-big-card-prompt {
+            font-size: 0.9rem;
+        }
+
+        .streak-visual {
+            gap: 2px;
+        }
+
+        .streak-day {
+            max-width: 18px;
         }
     }
 </style>
@@ -529,6 +1460,14 @@
                  alt="Terri & Nico"
                  class="header-image-secondary">
         </header>
+
+        <div class="today-big-card" id="todayBigCard">
+            <div class="bubble-cta" id="bubbleCta">Pop Today's Sparkle</div>
+            <div class="today-big-card-day" id="todayBigCardDay"></div>
+            <div class="today-big-card-date" id="todayBigCardDate"></div>
+            <div class="today-big-card-prompt" id="todayBigCardPrompt"></div>
+            <button class="today-big-card-btn" id="todayBigCardBtn" style="display: none;"></button>
+        </div>
 
         <div class="streak-container">
             <div class="streak-info">
@@ -594,9 +1533,55 @@
             return today.toISOString().split('T')[0];
         }
 
-        function isDateUnlocked(dateStr) {
-            return true;
+        function getCurrentDayIndex() {
+            const today = getTodayDate();
+            let todayIndex = -1;
+            prompts.forEach((item, index) => {
+                if (item.date === today) {
+                    todayIndex = index;
+                }
+            });
+            return todayIndex;
         }
+
+        function isDateUnlocked(dateStr) {
+            const today = getTodayDate();
+            const todayDate = new Date(today);
+            const checkDate = new Date(dateStr);
+            // Unlock if date is today or in the past
+            return checkDate <= todayDate;
+        }
+
+        function isDayCompleted(dayNumber) {
+            return localStorage.getItem(`dailySparkle_completed_day_${dayNumber}`) === 'true';
+        }
+
+        function setDayCompleted(dayNumber, completed) {
+            if (completed) {
+                localStorage.setItem(`dailySparkle_completed_day_${dayNumber}`, 'true');
+            } else {
+                localStorage.removeItem(`dailySparkle_completed_day_${dayNumber}`);
+            }
+            // Also update the old format for backward compatibility
+            updateCompletedDaysArray();
+        }
+
+        function updateCompletedDaysArray() {
+            completedDays = [];
+            prompts.forEach((item, index) => {
+                const dayNumber = index + 1;
+                if (isDayCompleted(dayNumber)) {
+                    completedDays.push(item.date);
+                }
+            });
+            localStorage.setItem('completedDays', JSON.stringify(completedDays));
+        }
+        
+        // Initialize completedDays from new format
+        updateCompletedDaysArray();
+        
+        // Initialize completedDays from new format
+        updateCompletedDaysArray();
 
         function calculateStreak() {
             if (completedDays.length === 0) return 0;
@@ -630,10 +1615,207 @@
             for (let i = 0; i < 30; i++) {
                 const day = document.createElement('div');
                 day.className = 'streak-day';
-                if (i < completedDays.length) {
+                const isChristmas = prompts[i].date === '2025-12-25';
+                const isBirthday = prompts[i].date === '2025-12-02';
+                const isNewYear = prompts[i].date === '2025-12-31';
+                // Check if the specific date (Dec 2-31) is in completedDays
+                if (completedDays.includes(prompts[i].date)) {
                     day.classList.add('active');
                 }
+                if (isChristmas) {
+                    day.classList.add('christmas');
+                }
+                if (isBirthday) {
+                    day.classList.add('birthday');
+                }
+                if (isNewYear) {
+                    day.classList.add('newyear');
+                }
                 streakVisual.appendChild(day);
+            }
+        }
+
+        function isDayRevealed(dayNumber) {
+            return localStorage.getItem(`dailySparkle_revealed_day_${dayNumber}`) === 'true';
+        }
+
+        function setDayRevealed(dayNumber) {
+            localStorage.setItem(`dailySparkle_revealed_day_${dayNumber}`, 'true');
+        }
+
+        // Helper function for testing - reset bubble state for current day
+        function resetBubbleForTesting() {
+            const today = getTodayDate();
+            let todayIndex = -1;
+            prompts.forEach((item, index) => {
+                if (item.date === today) {
+                    todayIndex = index;
+                }
+            });
+            if (todayIndex !== -1) {
+                const dayNumber = todayIndex + 1;
+                localStorage.removeItem(`dailySparkle_revealed_day_${dayNumber}`);
+                updateTodayBigCard();
+            }
+        }
+
+        // Make it accessible from console
+        window.resetBubbleForTesting = resetBubbleForTesting;
+
+        function popBubble(todayIndex) {
+            const todayBigCard = document.getElementById('todayBigCard');
+            const dayNumber = todayIndex + 1;
+            
+            // Create particles container
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'bubble-particles';
+            todayBigCard.appendChild(particlesContainer);
+            
+            // Create 8 particles
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'bubble-particle';
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add pop animation class
+            todayBigCard.classList.add('poping');
+            todayBigCard.classList.remove('bubble-state');
+            
+            // After pop animation, reveal content and remove particles
+            setTimeout(() => {
+                todayBigCard.classList.remove('poping');
+                todayBigCard.classList.add('revealed');
+                particlesContainer.remove();
+                revealDayContent(todayIndex);
+                setDayRevealed(dayNumber);
+            }, 600);
+        }
+
+        function revealDayContent(todayIndex) {
+            const todayBigCard = document.getElementById('todayBigCard');
+            const dayElement = document.getElementById('todayBigCardDay');
+            const dateElement = document.getElementById('todayBigCardDate');
+            const promptElement = document.getElementById('todayBigCardPrompt');
+            const btn = document.getElementById('todayBigCardBtn');
+            const bubbleCta = document.getElementById('bubbleCta');
+            
+            const item = prompts[todayIndex];
+            const dayNumber = todayIndex + 1;
+            const isCompleted = isDayCompleted(dayNumber);
+            const isChristmas = item.date === '2025-12-25';
+            const isBirthday = item.date === '2025-12-02';
+            const isNewYear = item.date === '2025-12-31';
+            
+            // Show content elements
+            dayElement.style.display = 'block';
+            dateElement.style.display = 'block';
+            promptElement.style.display = 'block';
+            btn.style.display = 'block';
+            bubbleCta.style.display = 'none';
+            
+            // Set content immediately (no typing effect)
+            dayElement.textContent = `Day ${todayIndex + 1}`;
+            dateElement.textContent = item.day;
+            promptElement.textContent = item.prompt;
+            
+            // Apply special effects
+            todayBigCard.classList.remove('christmas', 'birthday', 'newyear');
+            if (isChristmas) {
+                todayBigCard.classList.add('christmas');
+            }
+            if (isBirthday) {
+                todayBigCard.classList.add('birthday');
+            }
+            if (isNewYear) {
+                todayBigCard.classList.add('newyear');
+            }
+            
+            if (isCompleted) {
+                todayBigCard.classList.add('completed');
+                btn.textContent = '✓ Completed';
+                btn.classList.add('completed');
+            } else {
+                todayBigCard.classList.remove('completed');
+                btn.textContent = 'Complete';
+                btn.classList.remove('completed');
+            }
+            
+            // Update click handlers
+            todayBigCard.onclick = (e) => {
+                if (e.target !== btn && !btn.contains(e.target)) {
+                    openModal(todayIndex);
+                }
+            };
+            
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                const dayNumber = todayIndex + 1;
+                const isCurrentlyCompleted = isDayCompleted(dayNumber);
+                
+                setDayCompleted(dayNumber, !isCurrentlyCompleted);
+                updateStreak();
+                renderCalendar();
+            };
+        }
+
+        function updateTodayBigCard() {
+            const today = getTodayDate();
+            const todayBigCard = document.getElementById('todayBigCard');
+            const dayElement = document.getElementById('todayBigCardDay');
+            const dateElement = document.getElementById('todayBigCardDate');
+            const promptElement = document.getElementById('todayBigCardPrompt');
+            const btn = document.getElementById('todayBigCardBtn');
+            const bubbleCta = document.getElementById('bubbleCta');
+            
+            let todayIndex = -1;
+            prompts.forEach((item, index) => {
+                if (item.date === today) {
+                    todayIndex = index;
+                }
+            });
+            
+            if (todayIndex !== -1) {
+                // Today's date is in the prompts
+                const dayNumber = todayIndex + 1;
+                const isRevealed = isDayRevealed(dayNumber);
+                
+                todayBigCard.classList.remove('coming-soon');
+                
+                if (isRevealed) {
+                    // Already revealed - show content immediately
+                    todayBigCard.classList.remove('bubble-state');
+                    todayBigCard.classList.add('revealed');
+                    revealDayContent(todayIndex);
+                } else {
+                    // Not revealed - show bubble state
+                    todayBigCard.classList.add('bubble-state');
+                    todayBigCard.classList.remove('revealed');
+                    
+                    // Hide content, show bubble CTA
+                    dayElement.style.display = 'none';
+                    dateElement.style.display = 'none';
+                    promptElement.style.display = 'none';
+                    btn.style.display = 'none';
+                    bubbleCta.style.display = 'block';
+                    
+                    // Bubble click handler
+                    todayBigCard.onclick = () => {
+                        popBubble(todayIndex);
+                    };
+                }
+            } else {
+                // Today's date is not in the prompts - show "coming soon"
+                todayBigCard.classList.add('coming-soon');
+                todayBigCard.classList.remove('bubble-state', 'revealed', 'completed');
+                
+                dayElement.textContent = '';
+                dateElement.textContent = '';
+                promptElement.textContent = 'Happy Birthday Nico!';
+                bubbleCta.style.display = 'none';
+                btn.style.display = 'none';
+                
+                todayBigCard.onclick = null;
             }
         }
 
@@ -649,40 +1831,16 @@
                 }
             });
 
-            if (todayIndex !== -1) {
-                const item = prompts[todayIndex];
-                const todayContainer = document.createElement('div');
-                todayContainer.className = 'today-card-container';
-                
-                const card = document.createElement('div');
-                card.className = 'day-card today';
-                
-                const isCompleted = completedDays.includes(item.date);
-                
-                if (isCompleted) {
-                    card.classList.add('completed');
-                }
-
-                card.innerHTML = `
-                    ${isCompleted ? '<div class="checkmark">✓</div>' : ''}
-                    <div class="day-number">Day ${todayIndex + 1}</div>
-                    <div class="day-date">${item.day}</div>
-                    <div class="today-label">Today</div>
-                `;
-
-                card.onclick = () => openModal(todayIndex);
-                todayContainer.appendChild(card);
-                calendar.appendChild(todayContainer);
-            }
-
             prompts.forEach((item, index) => {
-                if (index === todayIndex) return;
-                
+                const dayNumber = index + 1;
                 const card = document.createElement('div');
                 card.className = 'day-card';
                 
-                const isCompleted = completedDays.includes(item.date);
+                const isCompleted = isDayCompleted(dayNumber);
                 const isUnlocked = isDateUnlocked(item.date);
+                const isChristmas = item.date === '2025-12-25';
+                const isBirthday = item.date === '2025-12-02';
+                const isNewYear = item.date === '2025-12-31';
                 
                 if (isCompleted) {
                     card.classList.add('completed');
@@ -692,9 +1850,21 @@
                     card.classList.add('locked');
                 }
 
+                if (isChristmas) {
+                    card.classList.add('christmas');
+                }
+
+                if (isBirthday) {
+                    card.classList.add('birthday');
+                }
+
+                if (isNewYear) {
+                    card.classList.add('newyear');
+                }
+
                 card.innerHTML = `
                     ${isCompleted ? '<div class="checkmark">✓</div>' : ''}
-                    <div class="day-number">Day ${index + 1}</div>
+                    <div class="day-number">Day ${dayNumber}</div>
                     <div class="day-date">${item.day.split(',')[1].trim()}</div>
                 `;
 
@@ -706,14 +1876,17 @@
             });
 
             updateStreak();
+            updateTodayBigCard();
         }
 
         function openModal(index) {
             currentDayIndex = index;
             const item = prompts[index];
-            const isCompleted = completedDays.includes(item.date);
+            const dayNumber = index + 1;
+            const isCompleted = isDayCompleted(dayNumber);
+            const isUnlocked = isDateUnlocked(item.date);
 
-            document.getElementById('modalDay').textContent = `Day ${index + 1}`;
+            document.getElementById('modalDay').textContent = `Day ${dayNumber}`;
             document.getElementById('modalDate').textContent = item.day;
             document.getElementById('modalPrompt').textContent = item.prompt;
             
@@ -726,6 +1899,15 @@
                 btn.classList.remove('completed');
             }
             
+            // Only allow completing if unlocked (past or today)
+            btn.disabled = !isUnlocked;
+            if (!isUnlocked) {
+                btn.textContent = 'Locked';
+                btn.style.opacity = '0.5';
+            } else {
+                btn.style.opacity = '1';
+            }
+            
             document.getElementById('modal').classList.add('active');
         }
 
@@ -734,17 +1916,14 @@
         }
 
         function toggleComplete() {
-            const item = prompts[currentDayIndex];
-            const index = completedDays.indexOf(item.date);
-
-            if (index > -1) {
-                completedDays.splice(index, 1);
-            } else {
-                completedDays.push(item.date);
-            }
-
-            localStorage.setItem('completedDays', JSON.stringify(completedDays));
+            const dayNumber = currentDayIndex + 1;
+            const isCurrentlyCompleted = isDayCompleted(dayNumber);
             
+            // Toggle completion state
+            setDayCompleted(dayNumber, !isCurrentlyCompleted);
+            
+            // Update streak and calendar
+            updateStreak();
             renderCalendar();
             
             closeModal();
