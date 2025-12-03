@@ -72,15 +72,12 @@
 
     @keyframes modal-sparkle {
         0% {
-            transform: scale(0);
+            transform: scale(0.8);
             opacity: 0;
         }
-        70% {
-            transform: scale(1.08);
+        60% {
+            transform: scale(1.05);
             opacity: 1;
-        }
-        85% {
-            transform: scale(0.95);
         }
         100% {
             transform: scale(1);
@@ -634,22 +631,23 @@
         text-transform: uppercase;
         letter-spacing: 1.5px;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     .today-big-card-date {
         font-size: 0.85rem;
         color: #a0605a;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         font-weight: 400;
     }
 
     .today-big-card-prompt {
         font-size: 1rem;
-        line-height: 1.4;
+        line-height: 1.5;
         color: #5c3838;
         font-weight: 300;
         letter-spacing: -0.3px;
+        max-width: 90%;
     }
 
     .today-big-card.coming-soon .today-big-card-prompt {
@@ -664,35 +662,9 @@
     }
 
     .today-big-card-btn {
-        background: linear-gradient(135deg, #a0605a, #6b3d3d);
-        color: #f5e6e0;
-        border: none;
-        border-radius: 50px;
-        padding: 10px 24px;
-        font-size: 0.8rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        box-shadow: 0 4px 15px rgba(107, 61, 61, 0.4);
-        margin-top: 15px;
+        display: none;
     }
 
-    .today-big-card-btn.completed {
-        background: rgba(245, 230, 224, 0.9);
-        color: #5c3838;
-        border: 2px solid rgba(200, 160, 150, 0.6);
-    }
-
-    .today-big-card-btn.completed:hover {
-        background: rgba(245, 230, 224, 1);
-    }
-
-    .today-big-card-btn:hover {
-        background: linear-gradient(135deg, #8b4a45, #5c3030);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(107, 61, 61, 0.5);
-    }
 
     .today-big-card.completed {
         background: linear-gradient(135deg, rgba(160, 96, 90, 0.2), rgba(107, 61, 61, 0.15), rgba(245, 230, 224, 0.9));
@@ -1107,7 +1079,7 @@
     }
 
     .modal {
-        display: none;
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
@@ -1117,13 +1089,16 @@
         z-index: 1000;
         padding: 20px;
         overflow-y: auto;
-        transition: background 0.3s ease;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease;
     }
 
     .modal.active {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        opacity: 1;
+        visibility: visible;
         background: rgba(60, 30, 30, 0.7);
     }
 
@@ -1142,8 +1117,16 @@
         box-shadow: 0 20px 80px rgba(60, 30, 30, 0.5);
         border: 3px solid rgba(200, 160, 150, 0.5);
         position: relative;
-        animation: modal-sparkle 1.2s cubic-bezier(0.34, 1.2, 0.64, 1);
         overflow-y: auto;
+        transform: scale(0.85) translateY(20px);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), 
+                    opacity 0.25s ease;
+    }
+
+    .modal.active .modal-content {
+        transform: scale(1) translateY(0);
+        opacity: 1;
     }
 
     @keyframes slideIn {
@@ -1218,23 +1201,17 @@
     .feedback-section {
         width: 100%;
         max-width: 380px;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .feedback-label {
-        font-size: 0.85rem;
-        color: #8b4747;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        text-align: left;
+        display: none;
     }
 
     .feedback-textarea {
         width: 100%;
-        min-height: 80px;
-        max-height: 120px;
+        min-height: 100px;
+        max-height: 140px;
         padding: 12px;
         border: 2px solid rgba(200, 160, 150, 0.4);
         border-radius: 15px;
@@ -1259,14 +1236,6 @@
         box-shadow: 0 0 10px rgba(160, 96, 90, 0.2);
     }
 
-    .feedback-section,
-    .feedback-label,
-    .feedback-textarea,
-    .feedback-display,
-    .feedback-display.empty,
-    .button-group {
-        display: none;
-    }
 
     .complete-btn {
         background: linear-gradient(135deg, #a0605a, #6b3d3d);
@@ -1370,17 +1339,18 @@
 
         .today-big-card-day {
             font-size: 0.85rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .today-big-card-date {
             font-size: 0.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .today-big-card-prompt {
             font-size: 1rem;
-            line-height: 1.4;
+            line-height: 1.5;
+            max-width: 85%;
         }
 
         .today-big-card.coming-soon .today-big-card-prompt {
@@ -1388,11 +1358,6 @@
             font-weight: 500;
         }
 
-        .today-big-card-btn {
-            padding: 10px 20px;
-            font-size: 0.75rem;
-            margin-top: 15px;
-        }
 
         .calendar-grid {
             grid-template-columns: repeat(3, 1fr);
@@ -1450,7 +1415,7 @@
 
         .feedback-textarea {
             font-size: 0.9rem;
-            min-height: 70px;
+            min-height: 85px;
         }
 
         .modal-day {
@@ -1786,18 +1751,17 @@
             const btn = document.getElementById('todayBigCardBtn');
             const bubbleCta = document.getElementById('bubbleCta');
             
-            const item = prompts[todayIndex];
+                const item = prompts[todayIndex];
             const dayNumber = todayIndex + 1;
             const isCompleted = isDayCompleted(dayNumber);
             const isChristmas = item.date === '2025-12-25';
             const isBirthday = item.date === '2025-12-02';
             const isNewYear = item.date === '2025-12-31';
             
-            // Show content elements
+            // Show content elements (no button in big bubble)
             dayElement.style.display = 'block';
             dateElement.style.display = 'block';
             promptElement.style.display = 'block';
-            btn.style.display = 'block';
             bubbleCta.style.display = 'none';
             
             // Set content immediately (no typing effect)
@@ -1816,32 +1780,16 @@
             if (isNewYear) {
                 todayBigCard.classList.add('newyear');
             }
-            
-            if (isCompleted) {
+                
+                if (isCompleted) {
                 todayBigCard.classList.add('completed');
-                btn.textContent = '✓ Completed';
-                btn.classList.add('completed');
             } else {
                 todayBigCard.classList.remove('completed');
-                btn.textContent = 'Complete';
-                btn.classList.remove('completed');
             }
             
-            // Update click handlers
-            todayBigCard.onclick = (e) => {
-                if (e.target !== btn && !btn.contains(e.target)) {
-                    openModal(todayIndex);
-                }
-            };
-            
-            btn.onclick = (e) => {
-                e.stopPropagation();
-                const dayNumber = todayIndex + 1;
-                const isCurrentlyCompleted = isDayCompleted(dayNumber);
-                
-                setDayCompleted(dayNumber, !isCurrentlyCompleted);
-                updateStreak();
-                renderCalendar();
+            // Update click handler - clicking opens modal
+            todayBigCard.onclick = () => {
+                openModal(todayIndex);
             };
         }
 
@@ -1916,7 +1864,7 @@
                     todayIndex = index;
                 }
             });
-
+                
             prompts.forEach((item, index) => {
                 const dayNumber = index + 1;
                 const card = document.createElement('div');
@@ -2003,7 +1951,12 @@
                 feedbackTextarea.style.opacity = '1';
             }
             
-            document.getElementById('modal').classList.add('active');
+            const modal = document.getElementById('modal');
+            
+            // Small delay to ensure transition triggers consistently
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
         }
 
         function closeModal() {
